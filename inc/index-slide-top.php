@@ -9,9 +9,9 @@
             aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-          <div class="carousel-item active"> <img src="images/1 (2).jpg" class="d-block w-100" alt="..."> </div>
-          <div class="carousel-item"> <img src="images/1 (3).jpg" class="d-block w-100" alt="..."> </div>
-          <div class="carousel-item"> <img src="images/1 (1).jpg" class="d-block w-100" alt="..."> </div>
+          <div class="carousel-item active"> <img src="<?php echo get_template_directory_uri(); ?>/images/1 (2).jpg" class="d-block w-100" alt="..."> </div>
+          <div class="carousel-item"> <img src="<?php echo get_template_directory_uri(); ?>/images/1 (3).jpg" class="d-block w-100" alt="..."> </div>
+          <div class="carousel-item"> <img src="<?php echo get_template_directory_uri(); ?>/images/1 (1).jpg" class="d-block w-100" alt="..."> </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
           data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span

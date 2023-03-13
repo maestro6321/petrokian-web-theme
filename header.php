@@ -18,7 +18,7 @@
           class="navbar-toggler-icon"></span> </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#">خانه</a> </li>
+          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="<?php echo get_site_url(); ?>">خانه</a> </li>
           <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button"
               data-bs-toggle="dropdown" aria-expanded="false"> پروژه ها </a>
             <ul class="dropdown-menu">
@@ -47,7 +47,7 @@
               <li><a class="dropdown-item" href="#">ساختار سازمانی</a></li>
             </ul>
           </li>
-          <li class="nav-item"> <a class="nav-link" href="#">تماس با ما</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#footer">تماس با ما</a> </li>
         </ul>
       </div>
     </div>

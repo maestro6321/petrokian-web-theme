@@ -1,5 +1,6 @@
 </main>
 <footer id="footer" class="footer-section container-fluid blockquote-footer">
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <section class="main-footer typo-light">
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-3"> <img src="images/logo.png" alt="" class="rounded"

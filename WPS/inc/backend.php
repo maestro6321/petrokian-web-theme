@@ -24,3 +24,20 @@ function wps_admin_menu (){
 include wps_inc."frontend.php";
 
 // ###########################################
+
+if ( isset( $_POST['submit_top_header'] ) ){
+	$cp_name=$_POST['company_name'];
+	$cp_tittle=$_POST['company_tittle'];
+	global $wpdb;
+	// $wpdb->update( 'wp_pk_options',array('option_value'=>$cp_name,array('option_name'>='company_name') ));
+	$wpdb->update(
+        $wpdb->prefix . 'pk_options',
+        array('option_value' => $cp_name),
+        array('option_name' => 'company_name')
+		);
+	$wpdb->update(
+		$wpdb->prefix . 'pk_options',
+		array('option_value' => $cp_tittle),
+		array('option_name' => 'company_tittle')
+		);	
+}

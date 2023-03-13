@@ -18,6 +18,7 @@ define('wps_css',trailingslashit( wps_url.'assets'.'/'.'css' ));
 define('wps_js',trailingslashit( wps_url.'assets'.'/'.'js' ));
 define('wps_images',trailingslashit( wps_url.'assets'.'/'.'images' ));
 define('wps_fonts',trailingslashit( wps_url.'assets'.'/'.'fonts' ));
+include wps_inc."page_create.php";
 
 // write activation && deactivation hook callback
 add_action( 'wps_load_style_admin', 'loading_style_script_admin' );
@@ -34,7 +35,7 @@ function wps_activation(){}
 function wps_deactivation(){}
 register_activation_hook( __FILE__, 'wps_activation' );
 register_deactivation_hook( __FILE__, 'wps_deactivation' );
-
+// create_page_wp("test");
 //
 if(is_admin()){
     include wps_inc."backend.php";

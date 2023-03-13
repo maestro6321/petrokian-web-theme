@@ -44,23 +44,17 @@
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-      <div class="input-group mb-3">
-      <form>
-        <div class="mb-3">
-          <label for="validationDefaultCompanyName" class="form-label">نام شرکت</label>
-          <input type="text" class="form-control" id="validationDefaultCompanyName" value="<?php echo get_pk_options('company_name'); ?>" required>
-          <div id="CompanyNameHelp" class="form-text">نام شرکت را به صورت کامل و واضح وارد کنید</div>
+      <form action="#" method="post">
+        <div class="input-group mb-3">
+          <span class="input-group-text">نام شرکت</span>
+          <input type="text" class="form-control" placeholder="نام شرکت را به صورت کامل وارد کنید" name="company_name" id="validationDefaultCompanyName" value="<?php echo get_pk_options('company_name'); ?>" required>
         </div>
-        <div class="mb-3">
-          <label for="validationDefaultCompanyTittle" class="form-label">توضیحات شرکت</label>
-          <input type="text" class="form-control" id="validationDefaultCompanyTittle" value="<?php echo get_pk_options('company_tittle'); ?>" required>
-          <div id="CompanytittleHelp" class="form-text">توضیحات مختصری راجع به فعالیت کلی شرکت وارد نمایید</div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">توضیحات شرکت</span>
+          <input type="text" class="form-control" placeholder="توضیحات مختصری راجع به فعالیت کلی شرکت وارد نمایید" name="company_tittle" id="validationDefaultCompanyTittle" value="<?php echo get_pk_options('company_tittle'); ?>" required>
         </div>
-        <!-- <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div> -->
-        <button type="submit" class="btn btn-primary">ذخیره</button>
+        <button type="submit" class="btn btn-success btn-sm btn-block" name="submit_top_header">ذخیره</button>
+        <button type="reset" class="btn btn-warning btn-sm btn-block">باز نشانی</button>
       </form>    
       </div>
     </div>
@@ -88,7 +82,12 @@
     </h2>
     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        <form action="">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">@</span>
+          <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        </form>
       </div>
     </div>
   </div>
