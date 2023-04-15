@@ -14,4 +14,11 @@ function loading_style_script() {
 }
 add_action( 'wp_enqueue_scripts', 'loading_style_script' );
 
-require_once dirname( __FILE__ ) . '/wps/wps.php';
+
+define('style_dir',trailingslashit( get_template_directory() ));
+// define('wps_url',trailingslashit( plugin_dir_url(__FILE__) ));
+// define('wps_url',get_template_directory_uri().'/wps'.'/');
+define('style_inc',trailingslashit( style_dir.'WPS' ));
+// require_once dirname( __FILE__ ) . '/wps/wps.php';
+include style_inc."wps.php";
+// include dirname( __FILE__ ) . '/wps/wps.php';

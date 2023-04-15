@@ -9,7 +9,7 @@
             <strong>شرکت پردیس پتروکیان پارسیان</strong><br>
             <br>
             <p>شرکت پردیس پترو کیان پارسیان با نام سابق گروه پیمانکاری راکی از سال 1382 فعالیت خود را آغاز نموده و در در
-              تاریخ 29/01/1396 بصورت سهامی خاص به شماره ثبت 2178 و شناسه ملی 14006714729 در سازمان ثبت اسناد و املاک
+              تاریخ 1396/01/29 بصورت سهامی خاص به شماره ثبت 2178 و شناسه ملی 14006714729 در سازمان ثبت اسناد و املاک
               کشور به ثبت رسید. </p>
             <a href="#"></a>
           </address>
@@ -55,11 +55,8 @@
             شیراز ، بلوار شهید بهشتی (سیاحتگر) روبروی بانک صادرات ، پلاک 77
           </address>
           <div class="map-responsive">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d306.5992688816662!2d52.513278788606016!3d29.610233487390687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1672212809286!5m2!1sen!2s"
-              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
+          <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=52.51221030950546%2C29.609268232427326%2C52.51472085714341%2C29.610879598933337&amp;layer=mapnik&amp;marker=29.610072748880906%2C52.51346558332443" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=29.61007&amp;mlon=52.51347#map=19/29.61007/52.51347">View Larger Map</a></small>
+        </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: wprdpress visitors users
+Plugin Name: pk plugin
 Plugin URI: http://wordpress.org/plugins/hello-dolly/
 Description: save visitors information.
 Author: Ali
@@ -11,7 +11,7 @@ defined('ABSPATH') || exit() ;
 //define constracts for wps
 define('wps_dir',trailingslashit( plugin_dir_path(__FILE__) ));
 // define('wps_url',trailingslashit( plugin_dir_url(__FILE__) ));
-define('wps_url',get_template_directory_uri().'/wps'.'/');
+define('wps_url',get_template_directory_uri().'/WPS'.'/');
 define('wps_inc',trailingslashit( wps_dir.'inc' ));
 define('wps_tpl',trailingslashit( wps_dir.'tpl' ));
 define('wps_css',trailingslashit( wps_url.'assets'.'/'.'css' ));
@@ -24,7 +24,7 @@ include wps_inc."page_create.php";
 add_action( 'wps_load_style_admin', 'loading_style_script_admin' );
 function loading_style_script_admin() {
     
-	wp_enqueue_style( 'bootstrap', wps_css . 'bootstrap.css');
+	wp_enqueue_style( 'bootstrap-wps', wps_css . 'bootstrap.css');
 	// wp_enqueue_script( 'jquery_admin', wps_js . 'jquery-3.6.3.min.js', array(), '1.0.0', true );
 	// wp_enqueue_script( 'popper_admin', wps_js . 'popper.min.js', array(), '1.0.0', true );
 	wp_enqueue_script( 'bootstrap_admin', wps_js . 'bootstrap.bundle.js', array(), '1.0.0', true );
