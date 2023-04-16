@@ -10,10 +10,10 @@ function get_page_id_by_title($title){
 	$rows = $wpdb->get_row("select id from wp_posts where( post_type = 'page') and (post_name='$title')");
 	return $rows->id;
   }
-
 function get_pk_projects($id){
 	$message =null;
 	global $wpdb;
+	$counter=0;
 	if ($id=='1') {
 		$rows = $wpdb->get_results( "SELECT * FROM `wp_pk_projects` WHERE `status`='تکمیل'	");
 	}elseif ($id==2){
@@ -25,8 +25,9 @@ function get_pk_projects($id){
 	}
     foreach ( $rows as $row )
 	{
+		$counter+=1;
 		$message .='<tr>';
-		$message .= '<th scope="row">'.$row->id.'</th>';
+		$message .= '<th scope="row">'. $counter .'</th>';
 		$message .= '<th>'.$row->employer.'</th>';
 		$message .= '<th>'.$row->place.'</th>';
 		$message .= '<th>'.$row->contract.'</th>';
