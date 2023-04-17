@@ -5,21 +5,33 @@
 function wpdocs_register_theme_setting() {
 	add_menu_page(
 		'Site theme Setting',
-		'Site theme Setting',
+		'تنظیمات سایت',
 		'manage_options',
-		'wps/wps-stat.php',
-		'wps_admin_menu',
+		'wps_custom_admin',
+		'wps_custum_menu_content',
 		// plugins_url( 'myplugin/images/icon.png' ),
         'dashicons-chart-line',
 		6
 	);
+
+	add_submenu_page( 
+		'wps_custom_admin',
+	 	'sub menu title',
+	 	'مدیریت پروژه ها',
+	  	'read',
+		'wps_custom_prj',
+	    'wps_sub_project_content',
+	);
 }
 add_action( 'admin_menu', 'wpdocs_register_theme_setting' );
 
-function wps_admin_menu (){
+function wps_custum_menu_content (){
 
     include wps_tpl."admin_main_page.php";
 	
+}
+function wps_sub_project_content(){
+	include wps_tpl."admin_project_page.php";
 }
 include wps_inc."frontend.php";
 
