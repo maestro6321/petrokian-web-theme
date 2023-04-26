@@ -19,6 +19,7 @@ define('wps_js',trailingslashit( wps_url.'assets'.'/'.'js' ));
 define('wps_images',trailingslashit( wps_url.'assets'.'/'.'images' ));
 define('wps_fonts',trailingslashit( wps_url.'assets'.'/'.'fonts' ));
 include wps_inc."page_create.php";
+include wps_inc."cr_db_tables.php";
 
 // write activation && deactivation hook callback
 add_action( 'wps_load_style_admin', 'loading_style_script_admin' );
@@ -31,7 +32,9 @@ function loading_style_script_admin() {
     // define('CONCATENATE_SCRIPTS', false);
 }
 
-function wps_activation(){}
+function wps_activation(){
+    cr_tbl_projects();
+}
 function wps_deactivation(){}
 register_activation_hook( __FILE__, 'wps_activation' );
 register_deactivation_hook( __FILE__, 'wps_deactivation' );
