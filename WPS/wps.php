@@ -32,9 +32,14 @@ function loading_style_script_admin() {
     // define('CONCATENATE_SCRIPTS', false);
 }
 
-function wps_activation(){
-    cr_tbl_projects();
+add_action( 'after_switch_theme', 'database_cfg' );
+function database_cfg(){
+    $crtbl = new wps_create_tables;
+    $crtbl->cr_tbl_projects();
+    $crtbl->test();
 }
+
+function wps_activation(){}
 function wps_deactivation(){}
 register_activation_hook( __FILE__, 'wps_activation' );
 register_deactivation_hook( __FILE__, 'wps_deactivation' );
