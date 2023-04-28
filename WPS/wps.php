@@ -35,16 +35,15 @@ function loading_style_script_admin() {
 add_action( 'after_switch_theme', 'database_cfg' );
 function database_cfg(){
     $crtbl = new wps_create_tables;
+    $crtpg = new wps_create_pages;
     $crtbl->cr_tbl_projects();
-    $crtbl->test();
+    $crtbl->cr_tbl_options();
+    $crtbl->cr_tbl_social();
+    $crtpg->cr_pg_about();
+    $crtpg->cr_pg_projects();
 }
 
-function wps_activation(){}
-function wps_deactivation(){}
-register_activation_hook( __FILE__, 'wps_activation' );
-register_deactivation_hook( __FILE__, 'wps_deactivation' );
-// create_page_wp("test");
-//
+
 if(is_admin()){
     include wps_inc."backend.php";
     

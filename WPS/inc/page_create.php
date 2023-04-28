@@ -1,22 +1,37 @@
 <?php
-function create_page_wp($tittle){
-    $data=$tittle;
-    $check_page_exist = get_page_by_title($data, 'OBJECT', 'page');
-// Check if the page already exists
-if(empty($check_page_exist)) {
-    $page_id = wp_insert_post(
-        array(
-        'comment_status' => 'close',
-        'ping_status'    => 'close',
-        'post_author'    => 1,
-        'post_title'     => ucwords($data),
-        'post_name'      => strtolower(str_replace(' ', '-', trim($data))),
-        'post_status'    => 'publish',
-        'post_content'   => 'Content of the page',
-        'post_type'      => 'page',
-        'post_template'  => 'About Us Page'
-        // 'post_parent'    => 'About us'
-        )
-    );
-}
+class wps_create_pages{
+    static function cr_pg_about() {
+        $page_slug = 'About-us'; // Slug of the Post
+      $new_page = array(
+          'post_type'     => 'page', 				// Post Type Slug eg: 'page', 'post'
+          'post_title'    => $page_slug	,	// Title of the Content
+          'post_content'  => 'Test Page Content',	// Content
+          'post_status'   => 'publish',			// Post Status
+          'post_author'   => 1,					// Post Author ID
+          'post_name'     => $page_slug			// Slug of the Post
+      );
+      if (!get_page_by_path( $page_slug, OBJECT, 'page')) { // Check If Page Not Exits
+          $new_page_id = wp_insert_post($new_page);
+          $page_id=get_page_id_by_title($page_slug);
+          global $wpdb;
+          add_post_meta( $page_id, '_wp_page_template', 'pages/about-us.php', true );
+      }
+    }
+    static function cr_pg_projects() {
+        $page_slug = 'Projects'; // Slug of the Post
+      $new_page = array(
+          'post_type'     => 'page', 				// Post Type Slug eg: 'page', 'post'
+          'post_title'    => $page_slug	,	// Title of the Content
+          'post_content'  => 'Test Page Content',	// Content
+          'post_status'   => 'publish',			// Post Status
+          'post_author'   => 1,					// Post Author ID
+          'post_name'     => $page_slug			// Slug of the Post
+      );
+      if (!get_page_by_path( $page_slug, OBJECT, 'page')) { // Check If Page Not Exits
+          $new_page_id = wp_insert_post($new_page);
+          $page_id=get_page_id_by_title($page_slug);
+          global $wpdb;
+          add_post_meta( $page_id, '_wp_page_template', 'pages/projects.php', true );
+      }
+    }
 }

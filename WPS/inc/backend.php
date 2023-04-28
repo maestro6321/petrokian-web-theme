@@ -22,12 +22,49 @@ function wpdocs_register_theme_setting() {
 		'wps_custom_prj',
 	    'wps_sub_project_content',
 	);
+	add_submenu_page( 
+		'wps_custom_admin',
+	 	'sub menu title',
+	 	'پروژه جدید',
+	  	'read',
+		'wps_custom_prj_edit',
+	    'wps_sub_project_edit',
+	);
+}
+function dy_from_submit(){
+	global $pagenow;
+	if($pagenow == 'admin.php' && isset($_GET['page'] )&& $_GET['page'] == 'wps_custom_prj_edit' ){
+
+		if(isset($_POST['save_project'])){
+			print_r('edit item number :'.$_GET['id']);
+			$data =[
+				'id' =>			sanitize_text_field( $_GET['id'] ),
+				'employer' =>	sanitize_text_field( $_POST['employer'] ),
+				'place' =>		sanitize_text_field( $_POST['place'] ),
+				'contract' =>	sanitize_text_field( $_POST['contract'] ),
+				'status' =>		sanitize_text_field( $_POST['status'] ),
+				'volume' =>		sanitize_text_field( $_POST['volume'] ),
+				'date' =>		sanitize_text_field( $_POST['date'] ),
+			];
+			print_r($data);exit();
+			//TODO: fix save data in to sql
+		}
+		if($_GET['actions']=='delete'){
+			print_r('delete item number :'.$_GET['id']);exit;
+		}
+	}
 }
 add_action( 'admin_menu', 'wpdocs_register_theme_setting' );
+add_action( 'admin_init', 'dy_from_submit' );
 
 function wps_custum_menu_content (){
 
     include wps_tpl."admin_main_page.php";
+	
+}
+function wps_sub_project_edit (){
+
+    include wps_tpl."admin_projects_edit.php";
 	
 }
 function wps_sub_project_content(){
