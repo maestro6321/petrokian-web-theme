@@ -36,27 +36,81 @@ function dy_from_submit(){
 	if($pagenow == 'admin.php' && isset($_GET['page'] )&& $_GET['page'] == 'wps_custom_prj_edit' ){
 
 		if(isset($_POST['save_project'])){
-			print_r('edit item number :'.$_GET['id']);
-			$data =[
-				'id' =>			sanitize_text_field( $_GET['id'] ),
-				'employer' =>	sanitize_text_field( $_POST['employer'] ),
-				'place' =>		sanitize_text_field( $_POST['place'] ),
-				'contract' =>	sanitize_text_field( $_POST['contract'] ),
-				'status' =>		sanitize_text_field( $_POST['status'] ),
-				'volume' =>		sanitize_text_field( $_POST['volume'] ),
-				'date' =>		sanitize_text_field( $_POST['date'] ),
-			];
-			print_r($data);exit();
-			//TODO: fix save data in to sql
+			if(isset($_GET['actions'] ) && $_GET['actions']=='edit'){
+				print_r('edit item number :'.$_GET['id']);
+				$data =[
+					'id' =>			sanitize_text_field( $_GET['id'] ),
+					'employer' =>	sanitize_text_field( $_POST['employer'] ),
+					'place' =>		sanitize_text_field( $_POST['place'] ),
+					'contract' =>	sanitize_text_field( $_POST['contract'] ),
+					'status' =>		sanitize_text_field( $_POST['status'] ),
+					'volume' =>		sanitize_text_field( $_POST['volume'] ),
+					'date' =>		sanitize_text_field( $_POST['date'] ),
+				];
+				print_r($data);exit();
+			}
+
+			else{
+				$data =[
+					// 'id' =>			sanitize_text_field( $_GET['id'] ),
+					'employer' =>	sanitize_text_field( $_POST['employer'] ),
+					'place' =>		sanitize_text_field( $_POST['place'] ),
+					'contract' =>	sanitize_text_field( $_POST['contract'] ),
+					'status' =>		sanitize_text_field( $_POST['status'] ),
+					'volume' =>		sanitize_text_field( $_POST['volume'] ),
+					'date' =>		sanitize_text_field( $_POST['date'] ),
+				];
+				global $wpdb;
+				$table_projects = $wpdb->prefix . 'pk_projects';
+				$inserted = $wpdb->insert(
+					$table_projects,
+					$data
+				);
+				if($inserted){
+					wp_redirect(  
+						admin_url( 'admin.php?page=wps_custom_prj_edit&edit_status=success')
+					);
+					//success
+				}else{
+					wp_redirect(  
+						admin_url( 'admin.php?page=wps_custom_prj_edit&edit_status=error')
+					);
+					//error
+				}
+			}
+
+
 		}
-		if($_GET['actions']=='delete'){
+		if(isset($_GET['actions'] ) && $_GET['actions']=='delete'){
 			print_r('delete item number :'.$_GET['id']);exit;
 		}
 	}
 }
 add_action( 'admin_menu', 'wpdocs_register_theme_setting' );
 add_action( 'admin_init', 'dy_from_submit' );
-
+add_action( 'admin_notices', 'dyme_notices' );
+function dyme_notices(){
+	$type = '';
+	$message = '';
+	if(isset($_GET['edit_status'])){
+		$status = sanitize_text_field( $_GET['edit_status'] );
+		if($status == 'success'){
+			$message = 'اطلاعات با موفقیت ثبت شد';
+			$type = 'success';
+		}
+		elseif($status == 'error'){
+			$message = 'خطا در ثبت اطلاعات';
+			$type = 'error';
+		}
+	}
+	if($type && $message){
+		?>
+		<div class="notice notice-<?php echo $type;?> is-dismissible">
+			<p><?php echo $message;	?></p>
+		</div>
+		<?php
+	}
+}
 function wps_custum_menu_content (){
 
     include wps_tpl."admin_main_page.php";

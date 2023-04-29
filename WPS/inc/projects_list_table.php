@@ -57,11 +57,11 @@ class project_list_table extends WP_List_Table{
     
 
 
-    public function column_cb( $item ) {
-        return sprintf(
-        '<input type="checkbox" name="bulk-delete[]" value="%s" />', $item['ID']
-        );
-    }
+    // public function column_cb( $item ) {
+    //     return sprintf(
+    //     '<input type="checkbox" name="bulk-delete[]" value="%s" />', $item['ID']
+    //     );
+    // }
 
 
       
