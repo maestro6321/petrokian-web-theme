@@ -41,6 +41,7 @@ function database_cfg(){
     $crtbl->cr_tbl_social();
     $crtpg->cr_pg_about();
     $crtpg->cr_pg_projects();
+    $crtpg->cr_pg_certificate();
 }
 
 

@@ -32,7 +32,7 @@
               <li><a class="dropdown-item" href="#">منابع انسانی</a></li>
               <li><a class="dropdown-item" href="#">امکانات و تجهیزات</a></li>
               <li><a class="dropdown-item" href="#">ستاد پشتیبانی و پایگاه عملیاتی</a></li>
-              <li><a class="dropdown-item" href="#">گواهی نامه و افتخارات</a></li>
+              <li><a class="dropdown-item" href="/?page_id=<?php echo get_page_id_by_title('certificate');?>">گواهی نامه و افتخارات</a></li>
               <li><a class="dropdown-item" href="#">مدیریت بهداشت ، ایمنی و محیط زیست</a></li>
             </ul>
           </li>

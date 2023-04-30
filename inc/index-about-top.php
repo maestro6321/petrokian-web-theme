@@ -15,9 +15,9 @@
           </a>
         </div>
         <div class="doc-link col-sm-12 col-md-5 text-center">
-          <p class="box-s3 btn"> <a href=""><img src="<?php echo get_template_directory_uri(); ?>/images/certificate-23.png" alt=""></a><br>
+          <p class="box-s3 btn"> <a href="/?page_id=<?php echo get_page_id_by_title('certificate');?>&id=1"><img src="<?php echo get_template_directory_uri(); ?>/images/certificate-23.png" alt=""></a><br>
             گواهی نامه ها </p>
-          <p class="box-s3 btn"> <a href=""><img src="<?php echo get_template_directory_uri(); ?>/images/document.png" alt=""></a><br>
+          <p class="box-s3 btn"> <a href="/?page_id=<?php echo get_page_id_by_title('certificate');?>&id=2"><img src="<?php echo get_template_directory_uri(); ?>/images/document.png" alt=""></a><br>
             تقدیر نامه ها </p>
         </div>
       </div>
