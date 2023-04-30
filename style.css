@@ -378,3 +378,15 @@ section{
     background-color: #555; /* Add a dark-grey background on hover */
   }
   /*################# btn scroll ########################*/
+
+
+
+  /* ################### certificate page ################ */
+  .cert img{
+    width: 100%;
+    aspect-ratio : 3/3;
+/*	max-height: 50px;*/
+	object-fit: contain;
+}
+
+  /* ################### certificate page ################ */
