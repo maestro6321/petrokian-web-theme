@@ -20,8 +20,6 @@ function get_pk_projects($id){
 		$rows = $wpdb->get_results( "SELECT * FROM `wp_pk_projects` WHERE `status`='در حال انجام'	");
 	}elseif ($id==3){
 		$rows = $wpdb->get_results( "SELECT * FROM `wp_pk_projects`");
-	}else{
-		return 434;
 	}
     foreach ( $rows as $row )
 	{
