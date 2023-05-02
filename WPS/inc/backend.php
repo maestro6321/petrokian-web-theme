@@ -100,7 +100,26 @@ function dy_from_submit(){
 
 		}
 		if(isset($_GET['actions'] ) && $_GET['actions']=='delete'){
-			print_r('delete item number :'.$_GET['id']);exit;
+			$ID = absint( $_GET['id']);
+			global $wpdb;
+			$table_projects = $wpdb->prefix . 'pk_projects';
+			$deleted=$wpdb->delete(
+				$table_projects,
+				[
+					'id' => $ID,
+				]
+			);
+			if($deleted){
+				wp_redirect(  
+					admin_url( 'admin.php?page=wps_custom_prj&edit_status=deleted')
+				);
+				exit;
+			}else{
+				wp_redirect(  
+					admin_url( 'admin.php?page=wps_custom_prj&edit_status=error')
+				);
+				exit;
+			}
 		}
 	}
 }
@@ -122,6 +141,10 @@ function dyme_notices(){
 		}
 		elseif($status == 'edited'){
 			$message = 'اطلاعات با موفقیت ویرایش شد';
+			$type = 'success';
+		}
+		elseif($status == 'deleted'){
+			$message = 'اطلاعات با موفقیت حذف شد';
 			$type = 'success';
 		}
 	}

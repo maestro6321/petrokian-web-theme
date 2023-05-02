@@ -30,7 +30,7 @@ class project_list_table extends WP_List_Table{
     public function column_employer($item) {
         $actions = [
                 'edit'      => '<a href="?page=wps_custom_prj_edit&actions=edit&id='.$item['id'].'">Edit</a>',
-                'delete'    => '<a href="?page=wps_custom_prj_edit&actions=delete&id='.$item['id'].'">Delete</a>',
+                'delete'    => '<a href="?page=wps_custom_prj_edit&actions=delete&id='.$item['id'].'" onclick="return confirm()">Delete</a>',
             ];
       
         return $item['employer']. $this->row_actions($actions) ;
