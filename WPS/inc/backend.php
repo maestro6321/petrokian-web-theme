@@ -24,7 +24,7 @@ function wpdocs_register_theme_setting() {
 	);
 	add_submenu_page( 
 		'wps_custom_admin',
-	 	'sub menu title',
+	 	'ویرایش پروژه ها',
 	 	'پروژه جدید',
 	  	'read',
 		'wps_custom_prj_edit',
@@ -36,40 +36,7 @@ function dy_from_submit(){
 	if($pagenow == 'admin.php' && isset($_GET['page'] )&& $_GET['page'] == 'wps_custom_prj_edit' ){
 
 		if(isset($_POST['save_project'])){
-			if(isset($_GET['actions'] ) && $_GET['actions']=='edit'){
-				print_r('edit item number :'.$_GET['id']);
-				$data =[
-					'id' =>			sanitize_text_field( $_GET['id'] ),
-					'employer' =>	sanitize_text_field( $_POST['employer'] ),
-					'place' =>		sanitize_text_field( $_POST['place'] ),
-					'contract' =>	sanitize_text_field( $_POST['contract'] ),
-					'status' =>		sanitize_text_field( $_POST['status'] ),
-					'volume' =>		sanitize_text_field( $_POST['volume'] ),
-					'date' =>		sanitize_text_field( $_POST['date'] ),
-				];
-				// print_r($data);exit();
-				global $wpdb;
-				$table_projects = $wpdb->prefix . 'pk_projects';
-				$where = [ 'id' => $data['id'] ];
-				$inserted = $wpdb->update(
-					$table_projects,
-					$data,
-					$where
-				);
-				if($inserted){
-					wp_redirect(  
-						admin_url( 'admin.php?page=wps_custom_prj_edit&ssss&edit_status=success')
-					);
-					//success
-				}else{
-					wp_redirect(  
-						admin_url( 'admin.php?page=wps_custom_prj_edit&edit_status=error')
-					);
-					//error
-				}
-			}
-
-			else{
+				$ID = absint( $_GET['id']);
 				$data =[
 					// 'id' =>			sanitize_text_field( $_GET['id'] ),
 					'employer' =>	sanitize_text_field( $_POST['employer'] ),
@@ -79,24 +46,56 @@ function dy_from_submit(){
 					'volume' =>		sanitize_text_field( $_POST['volume'] ),
 					'date' =>		sanitize_text_field( $_POST['date'] ),
 				];
+
+
 				global $wpdb;
 				$table_projects = $wpdb->prefix . 'pk_projects';
+				
+				if($ID){
+					$updated_rows=$wpdb->update(
+						$table_projects,
+						$data,
+						[
+							'id' => $ID,
+						]
+					);
+
+					if($updated_rows === false){
+						wp_redirect(  
+							admin_url( 'admin.php?page=wps_custom_prj_edit&edit_status=error')
+						);
+						exit;
+					}else{
+						wp_redirect(  
+							admin_url( 'admin.php?page=wps_custom_prj&edit_status=edited')
+						);
+						// wp_redirect(  
+						// 	admin_url( 'admin.php?page=wps_custom_prj_edit&edit_status=edited')
+						// );
+						exit;
+
+					}
+				}
+
+				
 				$inserted = $wpdb->insert(
 					$table_projects,
 					$data
 				);
 				if($inserted){
 					wp_redirect(  
-						admin_url( 'admin.php?page=wps_custom_prj_edit&edit_status=success')
+						admin_url( 'admin.php?page=wps_custom_prj&edit_status=edited')
 					);
+					exit;
 					//success
 				}else{
 					wp_redirect(  
 						admin_url( 'admin.php?page=wps_custom_prj_edit&edit_status=error')
 					);
+					exit;
 					//error
 				}
-			}
+			
 
 
 		}
@@ -121,9 +120,9 @@ function dyme_notices(){
 			$message = 'خطا در ثبت اطلاعات';
 			$type = 'error';
 		}
-		elseif($status == 'faild'){
-			$message = 'خطا در ثبت اطلاعات';
-			$type = 'error';
+		elseif($status == 'edited'){
+			$message = 'اطلاعات با موفقیت ویرایش شد';
+			$type = 'success';
 		}
 	}
 	if($type && $message){
@@ -140,6 +139,17 @@ function wps_custum_menu_content (){
 	
 }
 function wps_sub_project_edit (){
+	global $wpdb;
+	$table_name= $wpdb->prefix . 'pk_projects';
+	$projects = false;
+	if(isset( $_GET['actions']) && $_GET['actions']=='edit' && isset($_GET['id'])){
+		$project_id = absint( $_GET['id'] );
+		if($project_id){
+			$projects = $wpdb->get_row(
+				"SELECT * FROM $table_name WHERE id = $project_id"
+			);
+		}
+	}
 
     include wps_tpl."admin_projects_edit.php";
 	
