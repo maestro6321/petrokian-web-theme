@@ -13,7 +13,16 @@
         </tr>
       </thead>
       <tbody>
-      <?php echo get_pk_projects($_GET['id']);?>
+      <?php
+      if(isset($_GET['id'])){
+        echo get_pk_projects($_GET['id']);
+      }else{
+        wp_safe_redirect( home_url( '/' ), 301 );
+        
+      }
+      // TODO:: fix back to home url
+       
+       ?>
       </tbody>
     </table>
   </section>
