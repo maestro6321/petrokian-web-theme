@@ -47,7 +47,26 @@ function dy_from_submit(){
 					'volume' =>		sanitize_text_field( $_POST['volume'] ),
 					'date' =>		sanitize_text_field( $_POST['date'] ),
 				];
-				print_r($data);exit();
+				// print_r($data);exit();
+				global $wpdb;
+				$table_projects = $wpdb->prefix . 'pk_projects';
+				$where = [ 'id' => $data['id'] ];
+				$inserted = $wpdb->update(
+					$table_projects,
+					$data,
+					$where
+				);
+				if($inserted){
+					wp_redirect(  
+						admin_url( 'admin.php?page=wps_custom_prj_edit&ssss&edit_status=success')
+					);
+					//success
+				}else{
+					wp_redirect(  
+						admin_url( 'admin.php?page=wps_custom_prj_edit&edit_status=error')
+					);
+					//error
+				}
 			}
 
 			else{
@@ -99,6 +118,10 @@ function dyme_notices(){
 			$type = 'success';
 		}
 		elseif($status == 'error'){
+			$message = 'خطا در ثبت اطلاعات';
+			$type = 'error';
+		}
+		elseif($status == 'faild'){
 			$message = 'خطا در ثبت اطلاعات';
 			$type = 'error';
 		}
