@@ -1,4 +1,6 @@
 <?php
+/////
+defined('ABSPATH') || exit() ;
 class wps_create_pages{
     static function cr_pg_about() {
         $page_slug = 'About-us'; // Slug of the Post

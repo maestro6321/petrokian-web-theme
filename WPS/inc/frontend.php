@@ -1,4 +1,6 @@
 <?php
+/////
+defined('ABSPATH') || exit() ;
 function get_pk_options($option_name){
 	global $wpdb;
 	$mylink = $wpdb->get_row( "SELECT * FROM wp_pk_options WHERE option_name = '$option_name'" );
