@@ -187,16 +187,17 @@ section{
 }
 .projects ul li{
     text-align: right;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     list-style-type: none;
     padding: 0.1rem;
-}
-.projects ul li a{
     color: #000;
+    border-bottom: #203647;
+    border-bottom-style: solid;
 }
-#Projects-card-parent{
-    height: 100%;
+.projects ul li:hover{
+    font-weight: bold;
 }
+
 .projects .pg-cd{
     overflow: auto;
 /*    display: inline-block;*/

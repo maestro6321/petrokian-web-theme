@@ -1,12 +1,3 @@
-$("#Projects-card-child1").height($("#Projects-card-parent").height());
-$("#Projects-card-child2").height($("#Projects-card-parent").height());
-$("#Projects-card-child3").height($("#Projects-card-parent").height());
-$(window).resize(function(){
-	$("#Projects-card-child1").height($("#Projects-card-parent").height());
-	$("#Projects-card-child2").height($("#Projects-card-parent").height());
-	$("#Projects-card-child3").height($("#Projects-card-parent").height());
-});
-
 
    $(document).ready(function(){
     

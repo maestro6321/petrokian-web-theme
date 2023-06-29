@@ -29,19 +29,19 @@
           <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">توانمندی ها</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">منابع انسانی</a></li>
-              <li><a class="dropdown-item" href="#">امکانات و تجهیزات</a></li>
-              <li><a class="dropdown-item" href="#">ستاد پشتیبانی و پایگاه عملیاتی</a></li>
               <li><a class="dropdown-item" href="/?page_id=<?php echo get_page_id_by_title('certificate');?>">گواهی نامه و افتخارات</a></li>
-              <li><a class="dropdown-item" href="#">مدیریت بهداشت ، ایمنی و محیط زیست</a></li>
+              <li><a class="dropdown-item disabled" href="#">منابع انسانی</a></li>
+              <li><a class="dropdown-item disabled" href="#">امکانات و تجهیزات</a></li>
+              <li><a class="dropdown-item disabled" href="#">ستاد پشتیبانی و پایگاه عملیاتی</a></li>
+              <li><a class="dropdown-item disabled" href="#">مدیریت بهداشت ، ایمنی و محیط زیست</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">معرفی شرکت</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/?page_id=<?php echo get_page_id_by_title('About-us');?>">شرکت پردیس پتروکیان پارسیان در یک نگاه</a></li>
-              <li><a class="dropdown-item" href="#">هیات مدیره</a></li>
-              <li><a class="dropdown-item" href="#">ساختار سازمانی</a></li>
+              <li><a class="dropdown-item disabled" href="#">ساختار سازمانی</a></li>
+              <li><a class="dropdown-item disabled" href="#">هیات مدیره</a></li>
             </ul>
           </li>
           <li class="nav-item"> <a class="nav-link" href="#footer">تماس با ما</a> </li>
