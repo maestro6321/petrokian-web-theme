@@ -3,7 +3,7 @@
         <?php
           for ($x = 1; $x <= 7; $x++) {
             $img=imagecreatefromjpeg(get_template_directory_uri()."/images/cr/$x.jpg");
-            imagejpeg($img, "Image$x.jpg", 0);
+            imagejpeg($img, "Image$x.jpg", 50);
             ?>
             <div class="col">
           <div class="card shadow-sm">

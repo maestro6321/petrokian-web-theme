@@ -12,6 +12,6 @@
     </div>
     <div class=" col-sm-12 col-md-5 col-12 ">
       <a href="<?php echo get_site_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="" style="width: -webkit-fill-available;"></a>
-      <P><h6 class="text-center">socket_import_stream</h6></P>
+      <P><h2 class="text-center">پردیس پتروکیان پارسیان</h2></P>
     </div>
 </section>
