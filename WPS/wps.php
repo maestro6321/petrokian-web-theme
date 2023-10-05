@@ -20,6 +20,7 @@ define('wps_images',trailingslashit( wps_url.'assets'.'/'.'images' ));
 define('wps_fonts',trailingslashit( wps_url.'assets'.'/'.'fonts' ));
 include wps_inc."page_create.php";
 include wps_inc."cr_db_tables.php";
+include wps_inc."meta.php";
 
 // write activation && deactivation hook callback
 add_action( 'wps_load_style_admin', 'loading_style_script_admin' );
