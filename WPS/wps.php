@@ -20,10 +20,10 @@ define('wps_images',trailingslashit( wps_url.'assets'.'/'.'images' ));
 define('wps_fonts',trailingslashit( wps_url.'assets'.'/'.'fonts' ));
 include wps_inc."page_create.php";
 include wps_inc."cr_db_tables.php";
-include wps_inc."setting.php";
+include wps_inc."setting.php";  
 
 // write activation && deactivation hook callback
-add_action( 'wps_load_style_admin', 'loading_style_script_admin' );
+add_action( 'admin_enqueue_scripts', 'loading_style_script_admin' );
 function loading_style_script_admin() {
     
 	wp_enqueue_style( 'bootstrap-wps', wps_css . 'bootstrap.css');
@@ -63,6 +63,7 @@ if(is_admin()){
 function wp_cr_category(){
     wp_create_category("پست ویژه");
     wp_create_category("پست عادی");
+    wp_create_category("فراخوان");
 }
 
 ?>

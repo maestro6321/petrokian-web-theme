@@ -1,6 +1,6 @@
 <?php 
 get_header();
-get_template_part('inc/index','header');
+// get_template_part('inc/index','header');
 
 while (have_posts()) {
 the_post();

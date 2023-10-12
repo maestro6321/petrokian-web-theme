@@ -1,11 +1,11 @@
 <?php 
 get_header();
 get_template_part('inc/index','header');
-get_template_part('inc/index','slide-top');
+get_template_part('inc/index','slider');
 get_template_part('inc/index','post-top');
 get_template_part('inc/index','about-top');
 get_template_part('inc/index','project-sec');
 get_template_part('inc/index','employee');
-// get_template_part('inc/index','news');
+get_template_part('inc/index','news');
 get_footer(); 
 ?>
