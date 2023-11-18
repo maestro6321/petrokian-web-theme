@@ -7,5 +7,5 @@ get_template_part('inc/index','about-top');
 get_template_part('inc/index','project-sec');
 get_template_part('inc/index','employee');
 get_template_part('inc/index','news');
-get_footer(); 
+get_footer();//test 
 ?>
