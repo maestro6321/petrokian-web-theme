@@ -36,6 +36,9 @@ query_posts($query); ?>
          'prev_text' => __( '<i class="fas fa-angle-right"></i>', 'textdomain' ),
         'next_text' => __( '<i class="fas fa-angle-left"></i>', 'textdomain' ),
      ) ); ?>
- 
+ <?php else:{
+ echo("متاسفانه مطلبی جهت نمایش وجود ندارد");
+ }
+ ?>
 <?php endif; ?>
 </section>
