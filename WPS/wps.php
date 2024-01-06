@@ -41,6 +41,7 @@ function database_cfg(){
     $crtbl->cr_tbl_options();
     $crtbl->cr_tbl_social();
     $crtpg->cr_pg_about();
+    $crtpg->cr_pg_post();
     $crtpg->cr_pg_projects();
     $crtpg->cr_pg_certificate();
     add_action('admin_init','wp_cr_category');

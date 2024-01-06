@@ -32,16 +32,7 @@ if ( $query1->have_posts() ) {
 
   endwhile;
   ?>
-
-  <div class="post-index container" >
-  <?php the_posts_pagination( array(
-           'mid_size'  => 2,
-           'prev_text' => 'صفحه قبل' ,
-          'next_text' => 'صفحه بعد',
-       ) ); ?>
-  </div>
-  
-  
+ 
   <?php
   } 
 

@@ -26,6 +26,7 @@
               <li><a class="dropdown-item" href="/?page_id=<?php echo get_page_id_by_title('projects');?>&id=3">لیست کلی پروژه ها</a></li>
             </ul>
           </li>
+          <li class="nav-item"> <a class="nav-link" href="/?page_id=<?php echo get_page_id_by_title('posts');?>">مطالب</a> </li>
           <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">توانمندی ها</a>
             <ul class="dropdown-menu">
