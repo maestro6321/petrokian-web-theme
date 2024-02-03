@@ -20,14 +20,15 @@ define('wps_images',trailingslashit( wps_url.'assets'.'/'.'images' ));
 define('wps_fonts',trailingslashit( wps_url.'assets'.'/'.'fonts' ));
 include wps_inc."page_create.php";
 include wps_inc."cr_db_tables.php";
+include wps_inc."setting.php";  
 
 // write activation && deactivation hook callback
-add_action( 'wps_load_style_admin', 'loading_style_script_admin' );
+add_action( 'admin_enqueue_scripts', 'loading_style_script_admin' );
 function loading_style_script_admin() {
     
 	wp_enqueue_style( 'bootstrap-wps', wps_css . 'bootstrap.css');
 	// wp_enqueue_script( 'jquery_admin', wps_js . 'jquery-3.6.3.min.js', array(), '1.0.0', true );
-	// wp_enqueue_script( 'popper_admin', wps_js . 'popper.min.js', array(), '1.0.0', true );
+	wp_enqueue_script( 'popper_admin', wps_js . 'main.js', array(), '1.0.0', true );
 	wp_enqueue_script( 'bootstrap_admin', wps_js . 'bootstrap.bundle.js', array(), '1.0.0', true );
     // define('CONCATENATE_SCRIPTS', false);
 }
@@ -40,8 +41,10 @@ function database_cfg(){
     $crtbl->cr_tbl_options();
     $crtbl->cr_tbl_social();
     $crtpg->cr_pg_about();
+    $crtpg->cr_pg_post();
     $crtpg->cr_pg_projects();
     $crtpg->cr_pg_certificate();
+    add_action('admin_init','wp_cr_category');
 }
 
 
@@ -49,11 +52,19 @@ if(is_admin()){
     include wps_inc."backend.php";
     
     do_action( 'wps_load_style_admin');
-    
 
 }else{
     include wps_inc."frontend.php";
     // include wps_inc."backend.php";
+}
+
+
+
+
+function wp_cr_category(){
+    wp_create_category("پست ویژه");
+    wp_create_category("پست عادی");
+    wp_create_category("فراخوان");
 }
 
 ?>

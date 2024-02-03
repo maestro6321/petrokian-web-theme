@@ -10,7 +10,7 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top menu-top">
-    <div class="container-fluid"> <a class="navbar-brand" href="#">پتروکیان <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="پردیس پتروکیان پارسیان"
+    <div class="container"> <a class="navbar-brand" href="#">پتروکیان <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="پردیس پتروکیان پارسیان"
           class="logo-nav"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"> <span
@@ -26,6 +26,7 @@
               <li><a class="dropdown-item" href="/?page_id=<?php echo get_page_id_by_title('projects');?>&id=3">لیست کلی پروژه ها</a></li>
             </ul>
           </li>
+          <li class="nav-item"> <a class="nav-link" href="/?page_id=<?php echo get_page_id_by_title('posts');?>">مطالب</a> </li>
           <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">توانمندی ها</a>
             <ul class="dropdown-menu">

@@ -1,5 +1,5 @@
 </main>
-<footer id="footer" class="footer-section container-fluid blockquote-footer">
+<footer id="footer" class="footer-section container blockquote-footer">
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <section class="main-footer typo-light">
       <div class="row">

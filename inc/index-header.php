@@ -1,4 +1,4 @@
-<section class="header-section">
+<section class="header-section container">
       <div class="center-dive">
         <h1 class="display-4"><?php echo get_pk_options('company_name'); ?></h1>
         <h4><?php echo get_pk_options('company_tittle'); ?></h4>
