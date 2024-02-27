@@ -15,6 +15,7 @@ query_posts($query); ?>
         <div class="col-sm-12 col-md-7 col-12 position-relative">
           <h5><?php the_title(); ?></h5>
           <br>
+          <h1><?php the_excerpt(); ?></h1>
           <hr>
           <a href="<?php echo get_post_permalink( get_the_id() ); ?>">
             <button class="btn btn-warning btn-lg float-left btn-sm"> ادامه مطلب <span
