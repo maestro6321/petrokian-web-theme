@@ -2,18 +2,17 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/searchss.css"> 
+	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/404.css"> 
+  <?php wp_head();?>
 </head>
 <body>
-	<h1>404 Error Page #3</h1>
-<p class="zoom-area"><b>CSS</b> animations to make a cool 404 page. </p>
-<section class="error-container">
-  <span>4</span>
-  <span><span class="screen-reader-text">0</span></span>
-  <span>4</span>
-</section>
-<div class="link-container">
-  <a href="<?php echo home_url() ?>" class="more-link">Visit the original article</a>
+<div id="main">
+  <div class="fof">
+    <h1>خطای 404</h1>
+    <h3>متاسفانه قادر به یافتن صفحه مورد نظر شما نیستیم</h3>
+    </br>
+    <h3><a class="text-warning" href="<?php echo get_site_url(); ?>" >به صفحه اصلی سایت برگردید</a></h3>
+  </div>
 </div>
 </body>
 </html>
