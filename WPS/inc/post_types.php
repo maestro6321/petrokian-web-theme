@@ -1,5 +1,4 @@
 <?php
-add_theme_support('post-thumbnails');
 
 class wps_post_type{
     public function __construct(){  
@@ -211,4 +210,4 @@ class wps_post_type_slider{
                 <?php    
                 }
 }
-new wps_post_type_slider();
+// new wps_post_type_slider();
