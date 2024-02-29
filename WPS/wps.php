@@ -20,7 +20,8 @@ define('wps_images',trailingslashit( wps_url.'assets'.'/'.'images' ));
 define('wps_fonts',trailingslashit( wps_url.'assets'.'/'.'fonts' ));
 include wps_inc."page_create.php";
 include wps_inc."cr_db_tables.php";
-include wps_inc."setting.php";  
+include wps_inc."post_types.php";  
+include wps_inc."post_fields.php";  
 
 // write activation && deactivation hook callback
 add_action( 'admin_enqueue_scripts', 'loading_style_script_admin' );
@@ -58,7 +59,7 @@ if(is_admin()){
     // include wps_inc."backend.php";
 }
 
-
+add_theme_support('post-thumbnails');
 
 
 function wp_cr_category(){
