@@ -211,3 +211,52 @@ class wps_post_type_slider{
                 }
 }
 // new wps_post_type_slider();
+
+
+// new post_type_certificate
+add_action( 'init', function() {
+	register_post_type( 'certificate', array(
+	'labels' => array(
+		'name' => 'Certificate',
+		'singular_name' => 'Certificate',
+		'menu_name' => 'Certificate',
+		'all_items' => 'All Certificate',
+		'edit_item' => 'Edit Certificate',
+		'view_item' => 'View Certificate',
+		'view_items' => 'View Certificate',
+		'add_new_item' => 'Add New Certificate',
+		'add_new' => 'Add New Certificate',
+		'new_item' => 'New Certificate',
+		'parent_item_colon' => 'Parent Certificate:',
+		'search_items' => 'Search Certificate',
+		'not_found' => 'No certificate found',
+		'not_found_in_trash' => 'No certificate found in Trash',
+		'archives' => 'Certificate Archives',
+		'attributes' => 'Certificate Attributes',
+		'insert_into_item' => 'Insert into certificate',
+		'uploaded_to_this_item' => 'Uploaded to this certificate',
+		'filter_items_list' => 'Filter certificate list',
+		'filter_by_date' => 'Filter certificate by date',
+		'items_list_navigation' => 'Certificate list navigation',
+		'items_list' => 'Certificate list',
+		'item_published' => 'Certificate published.',
+		'item_published_privately' => 'Certificate published privately.',
+		'item_reverted_to_draft' => 'Certificate reverted to draft.',
+		'item_scheduled' => 'Certificate scheduled.',
+		'item_updated' => 'Certificate updated.',
+		'item_link' => 'Certificate Link',
+		'item_link_description' => 'A link to a certificate.',
+	),
+	'public' => true,
+	'show_in_rest' => true,
+	'supports' => array(
+		0 => 'title',
+		1 => 'thumbnail',
+	),
+	'taxonomies' => array(
+		0 => 'category',
+	),
+	'delete_with_user' => false,
+) );
+} );
+// new post_type_certificate

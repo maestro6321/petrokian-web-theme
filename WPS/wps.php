@@ -66,6 +66,8 @@ function wp_cr_category(){
     wp_create_category("پست ویژه");
     wp_create_category("پست عادی");
     wp_create_category("فراخوان");
+    wp_create_category("گواهینامه");
+    wp_create_category("تقدیرنامه");
 }
 
 ?>

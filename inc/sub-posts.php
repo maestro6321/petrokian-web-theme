@@ -6,7 +6,7 @@ $query = array(
 //  'orderby' => 'ID',
  'paged' => $paged , );
 query_posts($query); ?>
- 
+
  
 <?php if(have_posts()):
  while(have_posts()): the_post(); ?>
