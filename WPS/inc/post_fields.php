@@ -1,52 +1,99 @@
 <?php
-//function to add custom media field
-
-// function custom_media_add_media_custom_field( $form_fields, $post ) {
-//     $field_value = get_post_meta( $post->ID, 'custom_media_style', true );
-
-//     $form_fields['custom_media_style'] = array(
-//         'label' => 'Is Foo',
-//         'input' => 'html',
-//         'html' => '<label for="attachments-'.$post->ID.'-foo"> '.
-//             '<input type="checkbox" id="attachments-'.$post->ID.'-foo" name="attachments['.$post->ID.'][foo]" value="1"'.($foo ? ' checked="checked"' : '').' /> Yes</label>  ',
-//         'value' => $foo,
-//         'helps' => 'Check for yes'
-//     );
-
-//     return $form_fields;
+// if ( ! function_exists( 'is_plugin_active' ) ) {
+//     include_once ABSPATH . 'wp-admin/includes/plugin.php';
 // }
-// add_filter( 'attachment_fields_to_edit', 'custom_media_add_media_custom_field', null, 2 );
 
-// //save your custom media field
-// function custom_media_save_attachment( $attachment_id ) {
-//     if ( isset( $_REQUEST['attachments'][ $attachment_id ]['custom_media_style'] ) ) {
-//         $custom_media_style = $_REQUEST['attachments'][ $attachment_id ]['custom_media_style'];
-//         update_post_meta( $attachment_id, 'custom_media_style', $custom_media_style );
-
-//     }
+// // Check if ACF PRO is active
+// if ( is_plugin_active( 'advanced-custom-fields-pro/acf.php' ) ) {
+//     // Abort all bundling, ACF PRO plugin takes priority
+//     return;
 // }
-// add_action( 'edit_attachment', 'custom_media_save_attachment' );
 
+define( 'MY_ACF_PATH', get_stylesheet_directory() . '/WPS/inc/acf/' );
+define( 'MY_ACF_URL', get_stylesheet_directory_uri() . '/WPS/inc/acf/' );
 
-function attachment_fields_to_edit_islogoimage( $form_fields, $post ) {
-    $islogo = (bool) get_post_meta($post->ID, '_islogo', true);
-    $checked = ($islogo) ? 'checked' : '';
+// Include the ACF plugin.
+include_once( MY_ACF_PATH . 'acf.php' );
 
-    $form_fields['islogo'] = array(
-        'label' => 'Logo Image ?',
-        'input' => 'html',
-        'html' => "<input type='checkbox' {$checked} name='attachments[{$post->ID}][islogo]' id='attachments[{$post->ID}][islogo]' />",
-        'value' => $islogo,
-        'helps' => 'Should this image appear as a proposal Logo ?'
-    );
-    return $form_fields;
-
+// Customize the URL setting to fix incorrect asset URLs.
+add_filter('acf/settings/url', 'my_acf_settings_url');
+function my_acf_settings_url( $url ) {
+    return MY_ACF_URL;
 }
-add_filter( 'attachment_fields_to_edit', 'attachment_fields_to_edit_islogoimage', null, 2 );
 
-function attachment_fields_to_save_islogoimage($post, $attachment) {
-    $islogo = ($attachment['islogo'] == 'on') ? '1' : '0';
-    update_post_meta($post['ID'], '_islogo', $islogo);  
-    return $post;  
-}
-add_filter( 'attachment_fields_to_save', 'attachment_fields_to_save_islogoimage', null, 2 );
+// // Check if ACF free is installed
+// if ( ! file_exists( WP_PLUGIN_DIR . '/advanced-custom-fields/acf.php' ) ) {
+//     // Free plugin not installed
+//     // Hide the ACF admin menu item.
+//     add_filter( 'acf/settings/show_admin', '__return_false' );
+//     // Hide the ACF Updates menu
+//     add_filter( 'acf/settings/show_updates', '__return_false', 100 );
+// }
+
+
+
+
+
+
+
+
+// fields #1
+add_action( 'acf/include_fields', function() {
+	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+		return;
+	}
+
+	acf_add_local_field_group( array(
+	'key' => 'group_65e1db9ae04e4',
+	'title' => 'Special_attch_img',
+	'fields' => array(
+		array(
+			'key' => 'field_65e1db9a675db',
+			'label' => 'استفاده به عنوان',
+			'name' => 'Use_for',
+			'aria-label' => '',
+			'type' => 'checkbox',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'گواهینامه' => 'گواهینامه',
+				'تغدیرنامه' => 'تغدیرنامه',
+			),
+			'default_value' => array(
+			),
+			'return_format' => 'value',
+			'allow_custom' => 0,
+			'layout' => 'vertical',
+			'toggle' => 0,
+			'save_custom' => 0,
+			'custom_choice_button_text' => 'Add new choice',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'attachment',
+				'operator' => '==',
+				'value' => 'image',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+	'show_in_rest' => 0,
+    ) );
+    } );
+
+// end field #1
