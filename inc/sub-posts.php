@@ -5,12 +5,9 @@ $query = array(
 //  'order' => 'ASC',
 //  'orderby' => 'ID',
  'paged' => $paged , );
-query_posts($query); ?>
-
- 
-<?php if(have_posts()):
+query_posts($query);
+if(have_posts()):
  while(have_posts()): the_post(); ?>
-          <!-- <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li> -->
           <div class="post-content row text-right">
         <div class="col-sm-12 col-md-7 col-12 position-relative">
           <h5><?php the_title(); ?></h5>
@@ -27,10 +24,7 @@ query_posts($query); ?>
     </div>          
     <br>
     <hr>
-            <!-- content -->
- 
         <?php endwhile; ?>
- 
         <div class="pagination text-center">
  <?php the_posts_pagination( array(
          'mid_size'  => 10,
