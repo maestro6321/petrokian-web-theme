@@ -25,7 +25,10 @@
                  </div>
                </div>
                <?php endwhile;
-               endif; ?>
+               else:{
+              echo("متاسفانه مطلبی جهت نمایش وجود ندارد");
+              }
+           endif; ?>
              </div>
              <?php
         }
@@ -52,7 +55,10 @@
                  </div>
                </div>
                <?php endwhile;
-               endif; ?>
+               else:{
+              echo("متاسفانه مطلبی جهت نمایش وجود ندارد");
+              }
+           endif; ?>
              </div>
              <?php
         }
@@ -84,6 +90,9 @@
              </div>
            </div>
            <?php endwhile;
+               else:{
+              echo("متاسفانه مطلبی جهت نمایش وجود ندارد");
+              }
            endif; ?>
          </div>
          <?php
