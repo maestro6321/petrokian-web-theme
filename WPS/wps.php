@@ -50,14 +50,10 @@ function database_cfg(){
 }
 
 
-if(is_admin()){
+if(current_user_can( 'administrator' )){
     include wps_inc."backend.php";
-    
-    do_action( 'wps_load_style_admin');
-
 }else{
     include wps_inc."frontend.php";
-    // include wps_inc."backend.php";
 }
 
 add_theme_support('post-thumbnails');
